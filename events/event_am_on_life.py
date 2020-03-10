@@ -1,16 +1,24 @@
 """
-    # The activity's onCreate has been called.
-    am_on_create_called(User | 1 | 5), (Component Name | 3), (Reason | 3)
-    # The activity's onRestart has been called.
-    am_on_restart_called(User | 1 | 5), (Component Name | 3), (Reason | 3)
-    # The activity's onStart has been called.
-    am_on_start_called(User | 1 | 5), (Component Name | 3), (Reason | 3)
-    # The activity's onDestroy has been called.
-    am_on_destroy_called(User | 1 | 5), (Component Name | 3), (Reason | 3)
-    # The activity's onActivityResult has been called.
-    am_on_activity_result_called(User | 1 | 5), (Component Name | 3), (Reason | 3)
+am_on_stop_called
+am_on_create_called
+am_on_restart_called
+am_on_start_called
+am_on_destroy_called
+am_on_activity_result_called
+am_on_paused_called
+am_on_resume_called
+am_on_top_resumed_gained_called
+am_on_top_resumed_lost_called
+am_set_resumed_activity
+log format: (User | 1 | 5), (Component Name | 3), (Reason | 3)
 """
-class event_am_on_life:
+class event_am_on:
+    name=''
+    user=0
+    component=''
+    reason=''
+
+
     def __init__(self, name, user, component, reason):
         self.name = name
         self.user = user
@@ -19,6 +27,6 @@ class event_am_on_life:
 
 
     def to_string(self):
-        print('name['+self.user + ', ' + self.component + ', ' + self.reason + ']')
+        print(self.name+' ['+self.user + ', ' + self.component + ', ' + self.reason + ']')
 
 
